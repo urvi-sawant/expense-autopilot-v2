@@ -1,0 +1,2545 @@
+{
+  "employees": {
+    "EMP-001": {
+      "id": "EMP-001",
+      "name": "Priya Sharma",
+      "email": "priya.sharma@acmecorp.com",
+      "department": "Enterprise Sales",
+      "role": "Account Director",
+      "city_tier": "Tier 1",
+      "monthly_budget": 60000.0,
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150"
+    },
+    "EMP-002": {
+      "id": "EMP-002",
+      "name": "Rahul Verma",
+      "email": "rahul.verma@acmecorp.com",
+      "department": "Solutions Engineering",
+      "role": "Lead Architect",
+      "city_tier": "Tier 2",
+      "monthly_budget": 45000.0,
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150"
+    },
+    "EMP-003": {
+      "id": "EMP-003",
+      "name": "Ananya Iyer",
+      "email": "ananya.iyer@acmecorp.com",
+      "department": "Product Management",
+      "role": "Principal PM",
+      "city_tier": "Tier 1",
+      "monthly_budget": 50000.0,
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150"
+    },
+    "EMP-004": {
+      "id": "EMP-004",
+      "name": "Vikram Malhotra",
+      "email": "vikram.m@acmecorp.com",
+      "department": "Field Operations",
+      "role": "Operations Manager",
+      "city_tier": "Tier 1",
+      "monthly_budget": 55000.0,
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150"
+    }
+  },
+  "trips": {
+    "TRIP-2026-MUM": {
+      "id": "TRIP-2026-MUM",
+      "employee_id": "EMP-001",
+      "trip_name": "Mumbai Fintech & Banking Summit",
+      "destination_city": "Mumbai",
+      "city_tier": "Tier 1",
+      "start_date": "2026-10-10",
+      "end_date": "2026-10-14",
+      "purpose": "Client presentations to HDFC & Axis Bank leaders",
+      "budget_cap": 35000.0,
+      "status": "Active"
+    },
+    "TRIP-2026-BLR": {
+      "id": "TRIP-2026-BLR",
+      "employee_id": "EMP-002",
+      "trip_name": "Bangalore Cloud Expo & DevCon",
+      "destination_city": "Bangalore",
+      "city_tier": "Tier 1",
+      "start_date": "2026-10-05",
+      "end_date": "2026-10-08",
+      "purpose": "Technical workshop and AI architecture keynote",
+      "budget_cap": 28000.0,
+      "status": "Completed"
+    },
+    "TRIP-2026-DEL": {
+      "id": "TRIP-2026-DEL",
+      "employee_id": "EMP-003",
+      "trip_name": "Delhi Government FinTech Roadshow",
+      "destination_city": "Delhi",
+      "city_tier": "Tier 1",
+      "start_date": "2026-10-12",
+      "end_date": "2026-10-16",
+      "purpose": "Public sector compliance and procurement meet",
+      "budget_cap": 40000.0,
+      "status": "Active"
+    }
+  },
+  "policy_rules": {
+    "RULE-MEAL-TIER1": {
+      "rule_id": "RULE-MEAL-TIER1",
+      "category": "Meals",
+      "name": "Daily Meal Allowance (Tier 1 Metro)",
+      "description": "Daily meals capped at \u20b92,000 for Tier 1 cities (Mumbai, Delhi, Bangalore). Partial reimbursement permitted.",
+      "source_section": "Corporate Travel Policy 2026, Section 4.1.A",
+      "condition_type": "daily_limit",
+      "limit_amount": 2000.0,
+      "currency": "INR",
+      "applicable_city_tiers": [
+        "Tier 1"
+      ],
+      "partial_reimbursement": true,
+      "priority": 1,
+      "active": true
+    },
+    "RULE-MEAL-TIER2": {
+      "rule_id": "RULE-MEAL-TIER2",
+      "category": "Meals",
+      "name": "Daily Meal Allowance (Tier 2/3 Cities)",
+      "description": "Daily meals capped at \u20b91,500 for Tier 2/3 cities (Pune, Hyderabad, Jaipur, etc.).",
+      "source_section": "Corporate Travel Policy 2026, Section 4.1.B",
+      "condition_type": "daily_limit",
+      "limit_amount": 1500.0,
+      "currency": "INR",
+      "applicable_city_tiers": [
+        "Tier 2",
+        "Tier 3"
+      ],
+      "partial_reimbursement": true,
+      "priority": 1,
+      "active": true
+    },
+    "RULE-HOTEL-CAP": {
+      "rule_id": "RULE-HOTEL-CAP",
+      "category": "Lodging",
+      "name": "Nightly Hotel Accommodation Cap",
+      "description": "Standard accommodation capped at \u20b95,000/night for Tier 1, \u20b93,500/night for Tier 2.",
+      "source_section": "Corporate Travel Policy 2026, Section 3.2",
+      "condition_type": "single_limit",
+      "limit_amount": 5000.0,
+      "currency": "INR",
+      "applicable_city_tiers": [
+        "Tier 1"
+      ],
+      "partial_reimbursement": false,
+      "priority": 1,
+      "active": true
+    },
+    "RULE-CAB-LOCAL": {
+      "rule_id": "RULE-CAB-LOCAL",
+      "category": "Transport",
+      "name": "Local Transit & Cab Fare Limit",
+      "description": "Intra-city transport, taxi, and airport transfers allowed up to \u20b91,500 per journey.",
+      "source_section": "Corporate Travel Policy 2026, Section 2.3",
+      "condition_type": "single_limit",
+      "limit_amount": 1500.0,
+      "currency": "INR",
+      "partial_reimbursement": true,
+      "priority": 2,
+      "active": true
+    },
+    "RULE-CLIENT-MEAL": {
+      "rule_id": "RULE-CLIENT-MEAL",
+      "category": "Client Entertainment",
+      "name": "Client Meal Compliance & Headcount",
+      "description": "Requires mandatory Client Name, Company, Business Purpose, and Attendee Count. Max \u20b93,500/head.",
+      "source_section": "Business Dining Code, Section 5.3",
+      "condition_type": "client_meal",
+      "limit_amount": 3500.0,
+      "currency": "INR",
+      "required_fields": [
+        "Client Name",
+        "Client Company",
+        "Attendee Count",
+        "Business Purpose"
+      ],
+      "excluded_items": [
+        "Alcohol",
+        "Cocktail",
+        "Wine",
+        "Liquor"
+      ],
+      "partial_reimbursement": false,
+      "priority": 3,
+      "active": true
+    },
+    "RULE-PROHIBITED-GOODS": {
+      "rule_id": "RULE-PROHIBITED-GOODS",
+      "category": "General",
+      "name": "Prohibited & Non-Reimbursable Purchases",
+      "description": "Alcohol, tobacco, personal gifts, spa services, and gaming are strictly non-reimbursable.",
+      "source_section": "Governance Code, Section 4.2",
+      "condition_type": "non_reimbursable",
+      "limit_amount": 0.0,
+      "currency": "INR",
+      "excluded_items": [
+        "Beer",
+        "Wine",
+        "Cocktail",
+        "Tobacco",
+        "Cigarette",
+        "Spa",
+        "Gift"
+      ],
+      "partial_reimbursement": true,
+      "priority": 1,
+      "active": true
+    },
+    "RULE-APPROVAL-TIER": {
+      "rule_id": "RULE-APPROVAL-TIER",
+      "category": "General",
+      "name": "High-Value VP Approval Threshold",
+      "description": "Any single expense claim exceeding \u20b95,000 must be approved by Vice President or Department Head.",
+      "source_section": "Delegation of Financial Authority, Section 6.1",
+      "condition_type": "approval_threshold",
+      "limit_amount": 5000.0,
+      "currency": "INR",
+      "approval_threshold": 5000.0,
+      "priority": 4,
+      "active": true
+    }
+  },
+  "receipts": {
+    "REC-EXP-001": {
+      "receipt_id": "REC-EXP-001",
+      "file_name": "uber_india_systems_2026-10-10.jpg",
+      "file_url": "/api/receipts/preview/EXP-001",
+      "upload_timestamp": "2026-10-10T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "Uber India Systems",
+        "date": "2026-10-10",
+        "total_amount": 650.0,
+        "currency": "INR",
+        "tax_amount": 32.5,
+        "subtotal": 617.5,
+        "receipt_number": "UBER-MUM-4821",
+        "payment_method": "Corporate Card",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-1",
+            "description": "Airport to Hotel Transit",
+            "quantity": 1,
+            "unit_price": 650.0,
+            "total_price": 650.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 650.0,
+        "image_phash": "a1b2c3d4e5f60001",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-EXP-002": {
+      "receipt_id": "REC-EXP-002",
+      "file_name": "third_wave_coffee_roasters_2026-10-06.jpg",
+      "file_url": "/api/receipts/preview/EXP-002",
+      "upload_timestamp": "2026-10-06T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "Third Wave Coffee Roasters",
+        "date": "2026-10-06",
+        "total_amount": 420.0,
+        "currency": "INR",
+        "tax_amount": 20.0,
+        "subtotal": 400.0,
+        "receipt_number": "TWC-BLR-904",
+        "payment_method": "UPI",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-2",
+            "description": "Flat White & Croissant",
+            "quantity": 1,
+            "unit_price": 420.0,
+            "total_price": 420.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 420.0,
+        "image_phash": "b2c3d4e5f6a10002",
+        "orientation_corrected": true,
+        "preprocessing_applied": [
+          "Auto-Rotated 90\u00b0",
+          "Contrast Enhanced"
+        ]
+      }
+    },
+    "REC-EXP-003": {
+      "receipt_id": "REC-EXP-003",
+      "file_name": "sagar_ratna_connaught_place_2026-10-13.jpg",
+      "file_url": "/api/receipts/preview/EXP-003",
+      "upload_timestamp": "2026-10-13T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "Sagar Ratna Connaught Place",
+        "date": "2026-10-13",
+        "total_amount": 580.0,
+        "currency": "INR",
+        "tax_amount": 29.0,
+        "subtotal": 551.0,
+        "receipt_number": "SR-DEL-338",
+        "payment_method": "Corporate Card",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-3",
+            "description": "South Indian Thali Special",
+            "quantity": 1,
+            "unit_price": 450.0,
+            "total_price": 450.0,
+            "is_excluded": false
+          },
+          {
+            "item_id": "li-4",
+            "description": "Filter Coffee & Dessert",
+            "quantity": 1,
+            "unit_price": 130.0,
+            "total_price": 130.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 580.0,
+        "image_phash": "c3d4e5f6a1b20003",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-EXP-004": {
+      "receipt_id": "REC-EXP-004",
+      "file_name": "bastian_bandra_mumbai_2026-10-11.jpg",
+      "file_url": "/api/receipts/preview/EXP-004",
+      "upload_timestamp": "2026-10-11T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "Bastian Bandra Mumbai",
+        "date": "2026-10-11",
+        "total_amount": 1450.0,
+        "currency": "INR",
+        "tax_amount": 180.0,
+        "subtotal": 1120.0,
+        "receipt_number": "BAST-8812",
+        "payment_method": "Corporate Card",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.7,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-5",
+            "description": "Truffle Pasta",
+            "quantity": 1,
+            "unit_price": 750.0,
+            "total_price": 750.0,
+            "is_excluded": false
+          },
+          {
+            "item_id": "li-6",
+            "description": "Avocado Toast",
+            "quantity": 1,
+            "unit_price": 370.0,
+            "total_price": 370.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": false,
+        "arithmetic_error": "\u20b9150 gap between printed sum and line items",
+        "calculated_total": 1300.0,
+        "image_phash": "d4e5f6a1b2c30004",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-EXP-005": {
+      "receipt_id": "REC-EXP-005",
+      "file_name": "aws_cloud_practitioner_exam_voucher_2026-10-07.jpg",
+      "file_url": "/api/receipts/preview/EXP-005",
+      "upload_timestamp": "2026-10-07T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "AWS Cloud Practitioner Exam Voucher",
+        "date": "2026-10-07",
+        "total_amount": 45.0,
+        "currency": "USD",
+        "tax_amount": 0.0,
+        "subtotal": 45.0,
+        "receipt_number": "AWS-VOUCH-771",
+        "payment_method": "Corporate Credit Card",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-7",
+            "description": "Cloud Certification Exam Voucher",
+            "quantity": 1,
+            "unit_price": 45.0,
+            "total_price": 45.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 45.0,
+        "image_phash": "e5f6a1b2c3d40005",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-EXP-006": {
+      "receipt_id": "REC-EXP-006",
+      "file_name": "olive_bar_&_kitchen_delhi_2026-10-14.jpg",
+      "file_url": "/api/receipts/preview/EXP-006",
+      "upload_timestamp": "2026-10-14T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "Olive Bar & Kitchen Delhi",
+        "date": "2026-10-14",
+        "total_amount": 1950.0,
+        "currency": "INR",
+        "tax_amount": 100.0,
+        "subtotal": 1850.0,
+        "receipt_number": "OLV-DEL-559",
+        "payment_method": "Corporate Card",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-8",
+            "description": "Woodfired Artisan Pizza",
+            "quantity": 1,
+            "unit_price": 850.0,
+            "total_price": 850.0,
+            "is_excluded": false
+          },
+          {
+            "item_id": "li-9",
+            "description": "Classic Caesar Salad",
+            "quantity": 1,
+            "unit_price": 550.0,
+            "total_price": 550.0,
+            "is_excluded": false
+          },
+          {
+            "item_id": "li-10",
+            "description": "Craft Cocktail Spritz",
+            "quantity": 1,
+            "unit_price": 450.0,
+            "total_price": 450.0,
+            "is_excluded": true,
+            "exclusion_reason": "Alcohol excluded by corporate policy Section 4.2"
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 1950.0,
+        "image_phash": "f6a1b2c3d4e50006",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-EXP-007": {
+      "receipt_id": "REC-EXP-007",
+      "file_name": "lemon_tree_premier_bangalore_2026-10-06.jpg",
+      "file_url": "/api/receipts/preview/EXP-007",
+      "upload_timestamp": "2026-10-06T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "Lemon Tree Premier Bangalore",
+        "date": "2026-10-06",
+        "total_amount": 4800.0,
+        "currency": "INR",
+        "tax_amount": 576.0,
+        "subtotal": 4224.0,
+        "receipt_number": "LT-BLR-1092",
+        "payment_method": "Corporate Card",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-11",
+            "description": "Executive Room 1 Night",
+            "quantity": 1,
+            "unit_price": 4800.0,
+            "total_price": 4800.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 4800.0,
+        "image_phash": "a2b3c4d5e6f10007",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-EXP-008": {
+      "receipt_id": "REC-EXP-008",
+      "file_name": "the_table_colaba_mumbai_2026-10-12.jpg",
+      "file_url": "/api/receipts/preview/EXP-008",
+      "upload_timestamp": "2026-10-12T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "The Table Colaba Mumbai",
+        "date": "2026-10-12",
+        "total_amount": 3200.0,
+        "currency": "INR",
+        "tax_amount": 400.0,
+        "subtotal": 2800.0,
+        "receipt_number": "TAB-MUM-9411",
+        "payment_method": "Corporate Card",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-12",
+            "description": "Chef Tasting Platter & Mains",
+            "quantity": 1,
+            "unit_price": 2800.0,
+            "total_price": 2800.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 3200.0,
+        "image_phash": "b3c4d5e6f1a20008",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-EXP-009": {
+      "receipt_id": "REC-EXP-009",
+      "file_name": "croma_electronics_koramangala_2026-10-08.jpg",
+      "file_url": "/api/receipts/preview/EXP-009",
+      "upload_timestamp": "2026-10-08T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "Croma Electronics Koramangala",
+        "date": "2026-10-08",
+        "total_amount": 2499.0,
+        "currency": "INR",
+        "tax_amount": 381.0,
+        "subtotal": 2118.0,
+        "receipt_number": "CROMA-INV-9921",
+        "payment_method": "Personal Credit Card",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-13",
+            "description": "Logitech MX Master 3S Mouse",
+            "quantity": 1,
+            "unit_price": 2499.0,
+            "total_price": 2499.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 2499.0,
+        "image_phash": "c4d5e6f1a2b30009",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-EXP-010": {
+      "receipt_id": "REC-EXP-010",
+      "file_name": "croma_electronics_koramangala_2026-10-08.jpg",
+      "file_url": "/api/receipts/preview/EXP-010",
+      "upload_timestamp": "2026-10-08T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "Croma Electronics Koramangala",
+        "date": "2026-10-08",
+        "total_amount": 2499.0,
+        "currency": "INR",
+        "tax_amount": 381.0,
+        "subtotal": 2118.0,
+        "receipt_number": "CROMA-INV-9921",
+        "payment_method": "Personal Credit Card",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-14",
+            "description": "Logitech MX Master 3S Mouse",
+            "quantity": 1,
+            "unit_price": 2499.0,
+            "total_price": 2499.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 2499.0,
+        "image_phash": "c4d5e6f1a2b30009",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-EXP-011": {
+      "receipt_id": "REC-EXP-011",
+      "file_name": "trishna_seafood_fort_mumbai_2026-10-13.jpg",
+      "file_url": "/api/receipts/preview/EXP-011",
+      "upload_timestamp": "2026-10-13T20:30:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "Trishna Seafood Fort Mumbai",
+        "date": "2026-10-13",
+        "total_amount": 800.0,
+        "currency": "INR",
+        "tax_amount": 80.0,
+        "subtotal": 720.0,
+        "receipt_number": "TRISH-MUM-412",
+        "payment_method": "Corporate Card",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-15",
+            "description": "Butter Garlic Prawns & Rice",
+            "quantity": 1,
+            "unit_price": 720.0,
+            "total_price": 720.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 800.0,
+        "image_phash": "d5e6f1a2b3c40011",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-EXP-012": {
+      "receipt_id": "REC-EXP-012",
+      "file_name": "air_india_flights_corporate_2026-10-15.jpg",
+      "file_url": "/api/receipts/preview/EXP-012",
+      "upload_timestamp": "2026-10-15T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "Air India Flights Corporate",
+        "date": "2026-10-15",
+        "total_amount": 8450.0,
+        "currency": "INR",
+        "tax_amount": 650.0,
+        "subtotal": 7800.0,
+        "receipt_number": "AI-BOM-DEL-8921",
+        "payment_method": "Corporate Amex",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-16",
+            "description": "Economy Return Flight Mumbai-Delhi",
+            "quantity": 1,
+            "unit_price": 8450.0,
+            "total_price": 8450.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 8450.0,
+        "image_phash": "e6f1a2b3c4d50012",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-EXP-013": {
+      "receipt_id": "REC-EXP-013",
+      "file_name": "shree_balaji_software_licenses_2026-10-09.jpg",
+      "file_url": "/api/receipts/preview/EXP-013",
+      "upload_timestamp": "2026-10-09T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "Shree Balaji Software Licenses",
+        "date": "2026-10-09",
+        "total_amount": 4920.0,
+        "currency": "INR",
+        "tax_amount": 0.0,
+        "subtotal": 4920.0,
+        "receipt_number": "SBS-INV-109",
+        "payment_method": "Corporate Card",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-17",
+            "description": "Annual Team Collaboration Tools",
+            "quantity": 1,
+            "unit_price": 4920.0,
+            "total_price": 4920.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 4920.0,
+        "image_phash": "f1a2b3c4d5e60013",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-EXP-014": {
+      "receipt_id": "REC-EXP-014",
+      "file_name": "quicktech_peripherals_mumbai_2026-10-11.jpg",
+      "file_url": "/api/receipts/preview/EXP-014",
+      "upload_timestamp": "2026-10-11T12:00:00",
+      "file_type": "image/jpeg",
+      "file_size_kb": 245.5,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "QuickTech Peripherals Mumbai",
+        "date": "2026-10-11",
+        "total_amount": 4950.0,
+        "currency": "INR",
+        "tax_amount": 0.0,
+        "subtotal": 4950.0,
+        "receipt_number": "QT-MUM-883",
+        "payment_method": "Corporate Card",
+        "confidence_scores": {
+          "merchant": 0.98,
+          "date": 0.96,
+          "total_amount": 0.97,
+          "receipt_number": 0.95
+        },
+        "line_items": [
+          {
+            "item_id": "li-18",
+            "description": "High Resolution Monitor & Dock",
+            "quantity": 1,
+            "unit_price": 4950.0,
+            "total_price": 4950.0,
+            "is_excluded": false
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 4950.0,
+        "image_phash": "1a2b3c4d5e6f0014",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast Enhanced",
+          "Noise Filtered"
+        ]
+      }
+    },
+    "REC-E4202D30": {
+      "receipt_id": "REC-E4202D30",
+      "file_name": "taj_lands_end.jpg",
+      "file_url": "/api/receipts/preview/REC-E4202D30",
+      "raw_file_url": "/api/receipts/REC-E4202D30/file",
+      "saved_path": "C:\\Users\\Urvi Sawant\\Downloads\\ai expense\\backend\\uploads\\REC-E4202D30_taj_lands_end.jpg",
+      "upload_timestamp": "2026-10-18T08:34:56.248475",
+      "file_type": "image/jpeg",
+      "file_size_kb": 64.3,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "TAJ LANDS END MUMBAI",
+        "receipt_number": "/",
+        "date": "2026-10-18",
+        "currency": "INR",
+        "subtotal": 3150.0,
+        "cgst_amount": 0.0,
+        "sgst_amount": 0.0,
+        "igst_amount": 0.0,
+        "tax_percentage": null,
+        "tax_amount": 0.0,
+        "total_amount": 3150.0,
+        "line_items": [
+          {
+            "item_id": "li-1",
+            "description": "INR",
+            "quantity": 1,
+            "unit_price": 3150.0,
+            "total_price": 3150.0,
+            "is_excluded": false,
+            "exclusion_reason": null
+          }
+        ],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 3150.0,
+        "is_reconstructed_total": true,
+        "payment_method": "Corporate Card",
+        "suggested_category": "Lodging",
+        "confidence_scores": {
+          "merchant": 0.94,
+          "receipt_number": 0.92,
+          "date": 0.98,
+          "subtotal": 0.85,
+          "total_amount": 0.9
+        },
+        "raw_text": "TAJ LANDS END MUMBAI\nTAX INVOICE / OFFICIAL BILL\nInvoice # : INV\u20142026\u20149901\nDate: 2026-10-18\nPayment: Corporate Card\nITEMS & CHARGES\nExecutive\nSparkling\nBuffet\nMinera\nLunch\nWater\nSubtotal :\nCGST @ 2.5%:\nSGST @ 2.5%:\nTOTAL AMOUNT :\nAMOUNT\n2800.00\n200.00\nINR\nINR\nINR\n3000.00\n75.00\n75.00\nINR 3150.00",
+        "image_phash": "611436d495000000",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast enhanced +40%",
+          "Edge sharpness boosted +20%"
+        ]
+      }
+    },
+    "REC-A2E3190A": {
+      "receipt_id": "REC-A2E3190A",
+      "file_name": "The Daily Grind Cafe Receipt.png",
+      "file_url": "/api/receipts/preview/REC-A2E3190A",
+      "raw_file_url": "/api/receipts/REC-A2E3190A/file",
+      "saved_path": "C:\\Users\\Urvi Sawant\\Downloads\\ai expense\\backend\\uploads\\REC-A2E3190A_The_Daily_Grind_Cafe_Receipt.png",
+      "upload_timestamp": "2026-10-18T08:39:06.741736",
+      "file_type": "image/png",
+      "file_size_kb": 2498.6,
+      "status": "Processed",
+      "ocr_data": {
+        "merchant": "Table No",
+        "receipt_number": "Table",
+        "date": "2025-04-15",
+        "currency": "INR",
+        "subtotal": 0.0,
+        "cgst_amount": 0.0,
+        "sgst_amount": 0.0,
+        "igst_amount": 0.0,
+        "tax_percentage": null,
+        "tax_amount": 0.0,
+        "total_amount": 0.0,
+        "line_items": [],
+        "arithmetic_valid": true,
+        "arithmetic_error": null,
+        "calculated_total": 0.0,
+        "is_reconstructed_total": false,
+        "payment_method": "UPI / Digital",
+        "suggested_category": "Client Entertainment",
+        "confidence_scores": {
+          "merchant": 0.94,
+          "receipt_number": 0.92,
+          "date": 0.94
+        },
+        "raw_text": "Bill No\nTable No\nDate\nItem\nThe Daily Grind\nCAF\u00c9 & RESTAURANT\n123 Green Park Road, Bengaluru\n- 560001\n320.00\n120.00\n150.00\n590.00\n14.75\n14.75\nGSTIN: 29AAHCT1234FIZ5\nTG/2025/0421\n5\n15-04-2025 12:36 PM\nGrilled Chicken Sandwich\nIced Coffee\nFrench Fries\nSubtotal\nCGST (2.5%)\nSGST (2.5%)\nTotal\nPayment Method\nUPI\nUPI Ref No .\n123456789012\nQty\n1\n1\n1\nPrice (INR)\n619.50\nThank you for dining with us!\nVisit again!\nGOOD FOOD\nGOOD\nMOOD",
+        "image_phash": "c0e0d014c676c0e4",
+        "orientation_corrected": false,
+        "preprocessing_applied": [
+          "Contrast enhanced +40%",
+          "Edge sharpness boosted +20%"
+        ]
+      }
+    }
+  },
+  "expenses": {
+    "EXP-001": {
+      "id": "EXP-001",
+      "receipt_id": "REC-EXP-001",
+      "employee_id": "EMP-001",
+      "trip_id": "TRIP-2026-MUM",
+      "date": "2026-10-10",
+      "merchant": "Uber India Systems",
+      "category": "Transport",
+      "amount": 650.0,
+      "currency": "INR",
+      "amount_inr": 650.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "UBER-MUM-4821",
+      "payment_method": "Corporate Card",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Mumbai",
+      "line_items": [
+        {
+          "item_id": "li-1",
+          "description": "Airport to Hotel Transit",
+          "quantity": 1,
+          "unit_price": 650.0,
+          "total_price": 650.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 32.5,
+      "subtotal": 617.5,
+      "image_phash": "a1b2c3d4e5f60001",
+      "status": "Approved",
+      "is_provisional": true,
+      "eligible_amount": 650.0,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-10T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Approved",
+          "eligible_amount": 650.0,
+          "excess_amount": 0.0,
+          "currency": "INR",
+          "rules_evaluated": [
+            {
+              "rule_id": "RULE-CAB-LOCAL",
+              "rule_name": "Local Transit & Cab Fare Limit",
+              "rule_section": "Corporate Travel Policy 2026, Section 2.3",
+              "passed": true,
+              "requires_clarification": false,
+              "requires_approval": false,
+              "limit_evaluated": 1500.0,
+              "current_spent": 650.0,
+              "excess_detected": 0.0,
+              "message": "Expense of \u20b9650.00 is within single-transaction limit of \u20b91500.00.",
+              "severity": "INFO"
+            }
+          ],
+          "explanation": "Compliant: Fully conforms to corporate policy for Transport (Tier 1). Total \u20b9650.00 eligible.",
+          "allowance_before": 2000.0,
+          "allowance_after": 1350.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": false,
+      "has_risk_warning": false,
+      "created_at": "2026-10-10T12:00:00",
+      "updated_at": "2026-10-10T12:00:00"
+    },
+    "EXP-002": {
+      "id": "EXP-002",
+      "receipt_id": "REC-EXP-002",
+      "employee_id": "EMP-002",
+      "trip_id": "TRIP-2026-BLR",
+      "date": "2026-10-06",
+      "merchant": "Third Wave Coffee Roasters",
+      "category": "Meals",
+      "amount": 420.0,
+      "currency": "INR",
+      "amount_inr": 420.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "TWC-BLR-904",
+      "payment_method": "UPI",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Bangalore",
+      "line_items": [
+        {
+          "item_id": "li-2",
+          "description": "Flat White & Croissant",
+          "quantity": 1,
+          "unit_price": 420.0,
+          "total_price": 420.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 20.0,
+      "subtotal": 400.0,
+      "image_phash": "b2c3d4e5f6a10002",
+      "status": "Approved",
+      "is_provisional": true,
+      "eligible_amount": 420.0,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-06T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Approved",
+          "eligible_amount": 420.0,
+          "excess_amount": 0.0,
+          "currency": "INR",
+          "rules_evaluated": [
+            {
+              "rule_id": "RULE-MEAL-TIER1",
+              "rule_name": "Daily Meal Allowance (Tier 1 Metro)",
+              "rule_section": "Corporate Travel Policy 2026, Section 4.1.A",
+              "passed": true,
+              "requires_clarification": false,
+              "requires_approval": false,
+              "limit_evaluated": 2000.0,
+              "current_spent": 420.0,
+              "excess_detected": 0.0,
+              "message": "Expense of \u20b9420.00 fits within remaining Tier 1 daily allowance of \u20b92000.00 (Daily Cap: \u20b92000.00).",
+              "severity": "INFO"
+            }
+          ],
+          "explanation": "Compliant: Fully conforms to corporate policy for Meals (Tier 1). Total \u20b9420.00 eligible.",
+          "allowance_before": 2000.0,
+          "allowance_after": 1580.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": false,
+      "has_risk_warning": false,
+      "created_at": "2026-10-06T12:00:00",
+      "updated_at": "2026-10-06T12:00:00"
+    },
+    "EXP-003": {
+      "id": "EXP-003",
+      "receipt_id": "REC-EXP-003",
+      "employee_id": "EMP-003",
+      "trip_id": "TRIP-2026-DEL",
+      "date": "2026-10-13",
+      "merchant": "Sagar Ratna Connaught Place",
+      "category": "Meals",
+      "amount": 580.0,
+      "currency": "INR",
+      "amount_inr": 580.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "SR-DEL-338",
+      "payment_method": "Corporate Card",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Delhi",
+      "line_items": [
+        {
+          "item_id": "li-3",
+          "description": "South Indian Thali Special",
+          "quantity": 1,
+          "unit_price": 450.0,
+          "total_price": 450.0,
+          "is_excluded": false
+        },
+        {
+          "item_id": "li-4",
+          "description": "Filter Coffee & Dessert",
+          "quantity": 1,
+          "unit_price": 130.0,
+          "total_price": 130.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 29.0,
+      "subtotal": 551.0,
+      "image_phash": "c3d4e5f6a1b20003",
+      "status": "Approved",
+      "is_provisional": true,
+      "eligible_amount": 580.0,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-13T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Approved",
+          "eligible_amount": 580.0,
+          "excess_amount": 0.0,
+          "currency": "INR",
+          "rules_evaluated": [
+            {
+              "rule_id": "RULE-MEAL-TIER1",
+              "rule_name": "Daily Meal Allowance (Tier 1 Metro)",
+              "rule_section": "Corporate Travel Policy 2026, Section 4.1.A",
+              "passed": true,
+              "requires_clarification": false,
+              "requires_approval": false,
+              "limit_evaluated": 2000.0,
+              "current_spent": 580.0,
+              "excess_detected": 0.0,
+              "message": "Expense of \u20b9580.00 fits within remaining Tier 1 daily allowance of \u20b92000.00 (Daily Cap: \u20b92000.00).",
+              "severity": "INFO"
+            }
+          ],
+          "explanation": "Compliant: Fully conforms to corporate policy for Meals (Tier 1). Total \u20b9580.00 eligible.",
+          "allowance_before": 2000.0,
+          "allowance_after": 1420.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": false,
+      "has_risk_warning": false,
+      "created_at": "2026-10-13T12:00:00",
+      "updated_at": "2026-10-13T12:00:00"
+    },
+    "EXP-004": {
+      "id": "EXP-004",
+      "receipt_id": "REC-EXP-004",
+      "employee_id": "EMP-001",
+      "trip_id": "TRIP-2026-MUM",
+      "date": "2026-10-11",
+      "merchant": "Bastian Bandra Mumbai",
+      "category": "Meals",
+      "amount": 1450.0,
+      "currency": "INR",
+      "amount_inr": 1450.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "BAST-8812",
+      "payment_method": "Corporate Card",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Mumbai",
+      "line_items": [
+        {
+          "item_id": "li-5",
+          "description": "Truffle Pasta",
+          "quantity": 1,
+          "unit_price": 750.0,
+          "total_price": 750.0,
+          "is_excluded": false
+        },
+        {
+          "item_id": "li-6",
+          "description": "Avocado Toast",
+          "quantity": 1,
+          "unit_price": 370.0,
+          "total_price": 370.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 180.0,
+      "subtotal": 1120.0,
+      "image_phash": "d4e5f6a1b2c30004",
+      "status": "Needs Clarification",
+      "is_provisional": true,
+      "eligible_amount": 1450.0,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-11T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Needs Clarification",
+          "eligible_amount": 1450.0,
+          "excess_amount": 0.0,
+          "currency": "INR",
+          "rules_evaluated": [
+            {
+              "rule_id": "RULE-AUDIT-ARITHMETIC",
+              "rule_name": "Receipt Sum Verification",
+              "rule_section": "Sec 3.1 - Receipt Integrity",
+              "passed": false,
+              "requires_clarification": true,
+              "requires_approval": false,
+              "message": "Receipt arithmetic discrepancy detected between printed total and itemized breakdown.",
+              "severity": "WARNING"
+            },
+            {
+              "rule_id": "RULE-MEAL-TIER1",
+              "rule_name": "Daily Meal Allowance (Tier 1 Metro)",
+              "rule_section": "Corporate Travel Policy 2026, Section 4.1.A",
+              "passed": true,
+              "requires_clarification": false,
+              "requires_approval": false,
+              "limit_evaluated": 2000.0,
+              "current_spent": 1450.0,
+              "excess_detected": 0.0,
+              "message": "Expense of \u20b91450.00 fits within remaining Tier 1 daily allowance of \u20b92000.00 (Daily Cap: \u20b92000.00).",
+              "severity": "INFO"
+            }
+          ],
+          "explanation": "Needs Clarification: Mandatory documentation or verification required. Missing fields: Arithmetic resolution. Reimbursement cannot be finalized until employee clarifies or reviewer grants an exception.",
+          "allowance_before": 2000.0,
+          "allowance_after": 550.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": true,
+      "excluded_items_found": [],
+      "has_duplicate_warning": false,
+      "has_risk_warning": false,
+      "created_at": "2026-10-11T12:00:00",
+      "updated_at": "2026-10-11T12:00:00"
+    },
+    "EXP-005": {
+      "id": "EXP-005",
+      "receipt_id": "REC-EXP-005",
+      "employee_id": "EMP-002",
+      "trip_id": "TRIP-2026-BLR",
+      "date": "2026-10-07",
+      "merchant": "AWS Cloud Practitioner Exam Voucher",
+      "category": "Office Supplies",
+      "amount": 45.0,
+      "currency": "USD",
+      "amount_inr": 3757.5,
+      "exchange_rate": 83.5,
+      "receipt_number": "AWS-VOUCH-771",
+      "payment_method": "Corporate Credit Card",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Bangalore",
+      "line_items": [
+        {
+          "item_id": "li-7",
+          "description": "Cloud Certification Exam Voucher",
+          "quantity": 1,
+          "unit_price": 45.0,
+          "total_price": 45.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 0.0,
+      "subtotal": 45.0,
+      "image_phash": "e5f6a1b2c3d40005",
+      "status": "Approved",
+      "is_provisional": true,
+      "eligible_amount": 3757.5,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-07T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Approved",
+          "eligible_amount": 3757.5,
+          "excess_amount": 0.0,
+          "currency": "USD",
+          "rules_evaluated": [
+            {
+              "rule_id": "RULE-CURRENCY-FX",
+              "rule_name": "Benchmark Forex Conversion",
+              "rule_section": "Sec 2.4 - Foreign Currencies",
+              "passed": true,
+              "requires_clarification": false,
+              "requires_approval": false,
+              "message": "Converted USD 45.00 @ benchmark rate \u20b983.50/unit to \u20b93757.50.",
+              "severity": "INFO"
+            }
+          ],
+          "explanation": "Compliant: Fully conforms to corporate policy for Office Supplies (Tier 1). Total \u20b93757.50 eligible.",
+          "allowance_before": 2000.0,
+          "allowance_after": 0.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": false,
+      "has_risk_warning": false,
+      "created_at": "2026-10-07T12:00:00",
+      "updated_at": "2026-10-07T12:00:00"
+    },
+    "EXP-006": {
+      "id": "EXP-006",
+      "receipt_id": "REC-EXP-006",
+      "employee_id": "EMP-003",
+      "trip_id": "TRIP-2026-DEL",
+      "date": "2026-10-14",
+      "merchant": "Olive Bar & Kitchen Delhi",
+      "category": "Meals",
+      "amount": 1950.0,
+      "currency": "INR",
+      "amount_inr": 1950.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "OLV-DEL-559",
+      "payment_method": "Corporate Card",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Delhi",
+      "line_items": [
+        {
+          "item_id": "li-8",
+          "description": "Woodfired Artisan Pizza",
+          "quantity": 1,
+          "unit_price": 850.0,
+          "total_price": 850.0,
+          "is_excluded": false
+        },
+        {
+          "item_id": "li-9",
+          "description": "Classic Caesar Salad",
+          "quantity": 1,
+          "unit_price": 550.0,
+          "total_price": 550.0,
+          "is_excluded": false
+        },
+        {
+          "item_id": "li-10",
+          "description": "Craft Cocktail Spritz",
+          "quantity": 1,
+          "unit_price": 450.0,
+          "total_price": 450.0,
+          "is_excluded": true,
+          "exclusion_reason": "Alcohol excluded by corporate policy Section 4.2"
+        }
+      ],
+      "tax_amount": 100.0,
+      "subtotal": 1850.0,
+      "image_phash": "f6a1b2c3d4e50006",
+      "status": "Partially Eligible",
+      "is_provisional": true,
+      "eligible_amount": 1500.0,
+      "excess_amount": 450.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-14T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Partially Eligible",
+          "eligible_amount": 1500.0,
+          "excess_amount": 450.0,
+          "currency": "INR",
+          "rules_evaluated": [
+            {
+              "rule_id": "RULE-NON-REIMBURSABLE",
+              "rule_name": "Excluded Non-Reimbursable Items",
+              "rule_section": "Sec 4.2 - Prohibited Purchases",
+              "passed": false,
+              "requires_clarification": false,
+              "requires_approval": false,
+              "limit_evaluated": 0.0,
+              "excess_detected": 450.0,
+              "message": "Deducted \u20b9450.00 for prohibited items: Craft Cocktail Spritz (\u20b9450.00).",
+              "severity": "WARNING"
+            },
+            {
+              "rule_id": "RULE-MEAL-TIER1",
+              "rule_name": "Daily Meal Allowance (Tier 1 Metro)",
+              "rule_section": "Corporate Travel Policy 2026, Section 4.1.A",
+              "passed": true,
+              "requires_clarification": false,
+              "requires_approval": false,
+              "limit_evaluated": 2000.0,
+              "current_spent": 1500.0,
+              "excess_detected": 0.0,
+              "message": "Expense of \u20b91500.00 fits within remaining Tier 1 daily allowance of \u20b92000.00 (Daily Cap: \u20b92000.00).",
+              "severity": "INFO"
+            }
+          ],
+          "explanation": "Partially Eligible: \u20b91500.00 approved for reimbursement. \u20b9450.00 deducted for prohibited items (Craft Cocktail Spritz (\u20b9450.00)).",
+          "allowance_before": 2000.0,
+          "allowance_after": 500.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [
+        "Craft Cocktail Spritz (\u20b9450.00)"
+      ],
+      "has_duplicate_warning": false,
+      "has_risk_warning": false,
+      "created_at": "2026-10-14T12:00:00",
+      "updated_at": "2026-10-14T12:00:00"
+    },
+    "EXP-007": {
+      "id": "EXP-007",
+      "receipt_id": "REC-EXP-007",
+      "employee_id": "EMP-002",
+      "trip_id": "TRIP-2026-BLR",
+      "date": "2026-10-06",
+      "merchant": "Lemon Tree Premier Bangalore",
+      "category": "Lodging",
+      "amount": 4800.0,
+      "currency": "INR",
+      "amount_inr": 4800.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "LT-BLR-1092",
+      "payment_method": "Corporate Card",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Bangalore",
+      "line_items": [
+        {
+          "item_id": "li-11",
+          "description": "Executive Room 1 Night",
+          "quantity": 1,
+          "unit_price": 4800.0,
+          "total_price": 4800.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 576.0,
+      "subtotal": 4224.0,
+      "image_phash": "a2b3c4d5e6f10007",
+      "status": "Approved",
+      "is_provisional": true,
+      "eligible_amount": 4800.0,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-06T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Approved",
+          "eligible_amount": 4800.0,
+          "excess_amount": 0.0,
+          "currency": "INR",
+          "rules_evaluated": [
+            {
+              "rule_id": "RULE-HOTEL-CAP",
+              "rule_name": "Nightly Hotel Accommodation Cap",
+              "rule_section": "Corporate Travel Policy 2026, Section 3.2",
+              "passed": true,
+              "requires_clarification": false,
+              "requires_approval": false,
+              "limit_evaluated": 5000.0,
+              "current_spent": 4800.0,
+              "excess_detected": 0.0,
+              "message": "Expense of \u20b94800.00 is within single-transaction limit of \u20b95000.00.",
+              "severity": "INFO"
+            }
+          ],
+          "explanation": "Compliant: Fully conforms to corporate policy for Lodging (Tier 1). Total \u20b94800.00 eligible.",
+          "allowance_before": 2000.0,
+          "allowance_after": 0.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": false,
+      "has_risk_warning": false,
+      "created_at": "2026-10-06T12:00:00",
+      "updated_at": "2026-10-06T12:00:00"
+    },
+    "EXP-008": {
+      "id": "EXP-008",
+      "receipt_id": "REC-EXP-008",
+      "employee_id": "EMP-001",
+      "trip_id": "TRIP-2026-MUM",
+      "date": "2026-10-12",
+      "merchant": "The Table Colaba Mumbai",
+      "category": "Client Entertainment",
+      "amount": 3200.0,
+      "currency": "INR",
+      "amount_inr": 3200.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "TAB-MUM-9411",
+      "payment_method": "Corporate Card",
+      "attendee_count": 0,
+      "client_name": "",
+      "client_company": "",
+      "business_purpose": "",
+      "city": "Mumbai",
+      "line_items": [
+        {
+          "item_id": "li-12",
+          "description": "Chef Tasting Platter & Mains",
+          "quantity": 1,
+          "unit_price": 2800.0,
+          "total_price": 2800.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 400.0,
+      "subtotal": 2800.0,
+      "image_phash": "b3c4d5e6f1a20008",
+      "status": "Needs Clarification",
+      "is_provisional": true,
+      "eligible_amount": 3200.0,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-12T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Needs Clarification",
+          "eligible_amount": 3200.0,
+          "excess_amount": 0.0,
+          "currency": "INR",
+          "rules_evaluated": [
+            {
+              "rule_id": "RULE-CLIENT-DINING-MANDATORY",
+              "rule_name": "Client Meal Documentation",
+              "rule_section": "Sec 5.3 - Business Dining",
+              "passed": false,
+              "requires_clarification": true,
+              "requires_approval": false,
+              "message": "Missing mandatory client meal requirements: Client Name, Client Company, Attendee Count, Business Purpose.",
+              "severity": "WARNING"
+            }
+          ],
+          "explanation": "Needs Clarification: Mandatory documentation or verification required. Missing fields: Client Name, Client Company, Attendee Count, Business Purpose. Reimbursement cannot be finalized until employee clarifies or reviewer grants an exception.",
+          "allowance_before": 2000.0,
+          "allowance_after": 0.0
+        }
+      ],
+      "missing_fields": [
+        "Client Name",
+        "Client Company",
+        "Attendee Count",
+        "Business Purpose"
+      ],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": false,
+      "has_risk_warning": false,
+      "created_at": "2026-10-12T12:00:00",
+      "updated_at": "2026-10-12T12:00:00"
+    },
+    "EXP-009": {
+      "id": "EXP-009",
+      "receipt_id": "REC-EXP-009",
+      "employee_id": "EMP-004",
+      "trip_id": null,
+      "date": "2026-10-08",
+      "merchant": "Croma Electronics Koramangala",
+      "category": "Office Supplies",
+      "amount": 2499.0,
+      "currency": "INR",
+      "amount_inr": 2499.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "CROMA-INV-9921",
+      "payment_method": "Personal Credit Card",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Bangalore",
+      "line_items": [
+        {
+          "item_id": "li-13",
+          "description": "Logitech MX Master 3S Mouse",
+          "quantity": 1,
+          "unit_price": 2499.0,
+          "total_price": 2499.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 381.0,
+      "subtotal": 2118.0,
+      "image_phash": "c4d5e6f1a2b30009",
+      "status": "Approved",
+      "is_provisional": true,
+      "eligible_amount": 2499.0,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-08T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Approved",
+          "eligible_amount": 2499.0,
+          "excess_amount": 0.0,
+          "currency": "INR",
+          "rules_evaluated": [],
+          "explanation": "Compliant: Fully conforms to corporate policy for Office Supplies (Tier 1). Total \u20b92499.00 eligible.",
+          "allowance_before": 2000.0,
+          "allowance_after": 0.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": true,
+      "has_risk_warning": true,
+      "created_at": "2026-10-08T12:00:00",
+      "updated_at": "2026-10-08T12:00:00"
+    },
+    "EXP-010": {
+      "id": "EXP-010",
+      "receipt_id": "REC-EXP-010",
+      "employee_id": "EMP-004",
+      "trip_id": null,
+      "date": "2026-10-08",
+      "merchant": "Croma Electronics Koramangala",
+      "category": "Office Supplies",
+      "amount": 2499.0,
+      "currency": "INR",
+      "amount_inr": 2499.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "CROMA-INV-9921",
+      "payment_method": "Personal Credit Card",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Bangalore",
+      "line_items": [
+        {
+          "item_id": "li-14",
+          "description": "Logitech MX Master 3S Mouse",
+          "quantity": 1,
+          "unit_price": 2499.0,
+          "total_price": 2499.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 381.0,
+      "subtotal": 2118.0,
+      "image_phash": "c4d5e6f1a2b30009",
+      "status": "Approved",
+      "is_provisional": true,
+      "eligible_amount": 2499.0,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-08T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Approved",
+          "eligible_amount": 2499.0,
+          "excess_amount": 0.0,
+          "currency": "INR",
+          "rules_evaluated": [],
+          "explanation": "Compliant: Fully conforms to corporate policy for Office Supplies (Tier 1). Total \u20b92499.00 eligible.",
+          "allowance_before": 2000.0,
+          "allowance_after": 0.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": true,
+      "has_risk_warning": true,
+      "created_at": "2026-10-08T12:00:00",
+      "updated_at": "2026-10-08T12:00:00"
+    },
+    "EXP-011": {
+      "id": "EXP-011",
+      "receipt_id": "REC-EXP-011",
+      "employee_id": "EMP-001",
+      "trip_id": "TRIP-2026-MUM",
+      "date": "2026-10-13",
+      "merchant": "Trishna Seafood Fort Mumbai",
+      "category": "Meals",
+      "amount": 800.0,
+      "currency": "INR",
+      "amount_inr": 800.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "TRISH-MUM-412",
+      "payment_method": "Corporate Card",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Mumbai",
+      "line_items": [
+        {
+          "item_id": "li-15",
+          "description": "Butter Garlic Prawns & Rice",
+          "quantity": 1,
+          "unit_price": 720.0,
+          "total_price": 720.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 80.0,
+      "subtotal": 720.0,
+      "image_phash": "d5e6f1a2b3c40011",
+      "status": "Approved",
+      "is_provisional": true,
+      "eligible_amount": 800.0,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-13T20:30:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Approved",
+          "eligible_amount": 800.0,
+          "excess_amount": 0.0,
+          "currency": "INR",
+          "rules_evaluated": [
+            {
+              "rule_id": "RULE-MEAL-TIER1",
+              "rule_name": "Daily Meal Allowance (Tier 1 Metro)",
+              "rule_section": "Corporate Travel Policy 2026, Section 4.1.A",
+              "passed": true,
+              "requires_clarification": false,
+              "requires_approval": false,
+              "limit_evaluated": 2000.0,
+              "current_spent": 800.0,
+              "excess_detected": 0.0,
+              "message": "Expense of \u20b9800.00 fits within remaining Tier 1 daily allowance of \u20b92000.00 (Daily Cap: \u20b92000.00).",
+              "severity": "INFO"
+            }
+          ],
+          "explanation": "Compliant: Fully conforms to corporate policy for Meals (Tier 1). Total \u20b9800.00 eligible.",
+          "allowance_before": 2000.0,
+          "allowance_after": 1200.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": false,
+      "has_risk_warning": false,
+      "created_at": "2026-10-13T20:30:00",
+      "updated_at": "2026-10-13T20:30:00"
+    },
+    "EXP-012": {
+      "id": "EXP-012",
+      "receipt_id": "REC-EXP-012",
+      "employee_id": "EMP-003",
+      "trip_id": "TRIP-2026-DEL",
+      "date": "2026-10-15",
+      "merchant": "Air India Flights Corporate",
+      "category": "Transport",
+      "amount": 8450.0,
+      "currency": "INR",
+      "amount_inr": 8450.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "AI-BOM-DEL-8921",
+      "payment_method": "Corporate Amex",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Delhi",
+      "line_items": [
+        {
+          "item_id": "li-16",
+          "description": "Economy Return Flight Mumbai-Delhi",
+          "quantity": 1,
+          "unit_price": 8450.0,
+          "total_price": 8450.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 650.0,
+      "subtotal": 7800.0,
+      "image_phash": "e6f1a2b3c4d50012",
+      "status": "Pending Approval",
+      "is_provisional": true,
+      "eligible_amount": 1500.0,
+      "excess_amount": 6950.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-15T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Pending Approval",
+          "eligible_amount": 1500.0,
+          "excess_amount": 6950.0,
+          "currency": "INR",
+          "rules_evaluated": [
+            {
+              "rule_id": "RULE-CAB-LOCAL",
+              "rule_name": "Local Transit & Cab Fare Limit",
+              "rule_section": "Corporate Travel Policy 2026, Section 2.3",
+              "passed": false,
+              "requires_clarification": false,
+              "requires_approval": true,
+              "limit_evaluated": 1500.0,
+              "current_spent": 8450.0,
+              "excess_detected": 6950.0,
+              "message": "Expense exceeds single-transaction limit of \u20b91500.00 by \u20b96950.00.",
+              "severity": "WARNING"
+            },
+            {
+              "rule_id": "RULE-APPROVAL-HIGH-VALUE",
+              "rule_name": "Executive Sign-Off Threshold",
+              "rule_section": "Sec 6.1 - Governance & Delegation",
+              "passed": false,
+              "requires_clarification": false,
+              "requires_approval": true,
+              "limit_evaluated": 5000.0,
+              "current_spent": 8450.0,
+              "excess_detected": 3450.0,
+              "message": "Claim amount \u20b98450.00 exceeds standard manager threshold (\u20b95,000.00). Requires VP/Director sign-off.",
+              "severity": "ESCALATION"
+            }
+          ],
+          "explanation": "Pending Approval: Claim of \u20b98450.00 exceeds standard \u20b95,000 approval limit. Routed to Vice President / Department Head for authorized review.",
+          "allowance_before": 2000.0,
+          "allowance_after": 500.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": false,
+      "has_risk_warning": false,
+      "created_at": "2026-10-15T12:00:00",
+      "updated_at": "2026-10-15T12:00:00"
+    },
+    "EXP-013": {
+      "id": "EXP-013",
+      "receipt_id": "REC-EXP-013",
+      "employee_id": "EMP-004",
+      "trip_id": null,
+      "date": "2026-10-09",
+      "merchant": "Shree Balaji Software Licenses",
+      "category": "Office Supplies",
+      "amount": 4920.0,
+      "currency": "INR",
+      "amount_inr": 4920.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "SBS-INV-109",
+      "payment_method": "Corporate Card",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Mumbai",
+      "line_items": [
+        {
+          "item_id": "li-17",
+          "description": "Annual Team Collaboration Tools",
+          "quantity": 1,
+          "unit_price": 4920.0,
+          "total_price": 4920.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 0.0,
+      "subtotal": 4920.0,
+      "image_phash": "f1a2b3c4d5e60013",
+      "status": "Approved",
+      "is_provisional": true,
+      "eligible_amount": 4920.0,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-09T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Approved",
+          "eligible_amount": 4920.0,
+          "excess_amount": 0.0,
+          "currency": "INR",
+          "rules_evaluated": [],
+          "explanation": "Compliant: Fully conforms to corporate policy for Office Supplies (Tier 1). Total \u20b94920.00 eligible.",
+          "allowance_before": 2000.0,
+          "allowance_after": 0.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": false,
+      "has_risk_warning": true,
+      "created_at": "2026-10-09T12:00:00",
+      "updated_at": "2026-10-09T12:00:00"
+    },
+    "EXP-014": {
+      "id": "EXP-014",
+      "receipt_id": "REC-EXP-014",
+      "employee_id": "EMP-004",
+      "trip_id": null,
+      "date": "2026-10-11",
+      "merchant": "QuickTech Peripherals Mumbai",
+      "category": "Office Supplies",
+      "amount": 4950.0,
+      "currency": "INR",
+      "amount_inr": 4950.0,
+      "exchange_rate": 1.0,
+      "receipt_number": "QT-MUM-883",
+      "payment_method": "Corporate Card",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Mumbai",
+      "line_items": [
+        {
+          "item_id": "li-18",
+          "description": "High Resolution Monitor & Dock",
+          "quantity": 1,
+          "unit_price": 4950.0,
+          "total_price": 4950.0,
+          "is_excluded": false
+        }
+      ],
+      "tax_amount": 0.0,
+      "subtotal": 4950.0,
+      "image_phash": "1a2b3c4d5e6f0014",
+      "status": "Approved",
+      "is_provisional": true,
+      "eligible_amount": 4950.0,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-11T12:00:00",
+          "trigger_event": "Initial Expense Submission",
+          "status": "Approved",
+          "eligible_amount": 4950.0,
+          "excess_amount": 0.0,
+          "currency": "INR",
+          "rules_evaluated": [],
+          "explanation": "Compliant: Fully conforms to corporate policy for Office Supplies (Tier 1). Total \u20b94950.00 eligible.",
+          "allowance_before": 2000.0,
+          "allowance_after": 0.0
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": false,
+      "has_risk_warning": true,
+      "created_at": "2026-10-11T12:00:00",
+      "updated_at": "2026-10-11T12:00:00"
+    },
+    "EXP-618E30F3": {
+      "id": "EXP-618E30F3",
+      "receipt_id": "REC-A2E3190A",
+      "employee_id": "EMP-001",
+      "trip_id": null,
+      "date": "2025-04-15",
+      "merchant": "Priya",
+      "category": "Meals",
+      "amount": 619.5,
+      "currency": "INR",
+      "amount_inr": 619.5,
+      "exchange_rate": 1.0,
+      "receipt_number": "TG/2025/0421",
+      "payment_method": "UPI / Digital",
+      "attendee_count": null,
+      "client_name": null,
+      "client_company": null,
+      "business_purpose": null,
+      "city": "Mumbai",
+      "line_items": [
+        {
+          "item_id": "li-1",
+          "description": "Meals Claim at Priya",
+          "quantity": 1,
+          "unit_price": 590,
+          "total_price": 590,
+          "is_excluded": false
+        }
+      ],
+      "subtotal": 590.0,
+      "tax_amount": 29.5,
+      "cgst_amount": 2.5,
+      "sgst_amount": 2.5,
+      "igst_amount": 0.0,
+      "tax_percentage": 5.0,
+      "raw_file_url": "/api/receipts/REC-A2E3190A/file",
+      "image_phash": "c0e0d014c676c0e4",
+      "status": "Approved",
+      "is_provisional": true,
+      "eligible_amount": 619.5,
+      "excess_amount": 0.0,
+      "active_decision_version": 1,
+      "decision_history": [
+        {
+          "version": 1,
+          "timestamp": "2026-10-18T08:41:49.758671",
+          "trigger_event": "Expense Submission",
+          "status": "Approved",
+          "eligible_amount": 619.5,
+          "excess_amount": 0.0,
+          "currency": "INR",
+          "rules_evaluated": [
+            {
+              "rule_id": "RULE-MEAL-TIER1",
+              "rule_name": "Daily Meal Allowance (Tier 1 Metro)",
+              "rule_section": "Corporate Travel Policy 2026, Section 4.1.A",
+              "passed": true,
+              "requires_clarification": false,
+              "requires_approval": false,
+              "limit_evaluated": 2000.0,
+              "current_spent": 619.5,
+              "excess_detected": 0.0,
+              "message": "Expense of \u20b9619.50 fits within remaining Tier 1 daily allowance of \u20b92000.00 (Daily Cap: \u20b92000.00).",
+              "severity": "INFO"
+            }
+          ],
+          "explanation": "Compliant: Fully conforms to corporate policy for Meals (Tier 1). Total \u20b9619.50 eligible.",
+          "allowance_before": 2000.0,
+          "allowance_after": 1380.5
+        }
+      ],
+      "missing_fields": [],
+      "arithmetic_mismatch": false,
+      "excluded_items_found": [],
+      "has_duplicate_warning": false,
+      "has_risk_warning": false,
+      "created_at": "2026-10-18T08:41:49.758671",
+      "updated_at": "2026-10-18T08:41:49.758671"
+    }
+  },
+  "duplicate_candidates": {
+    "DUP-EXP-009-EXP-010": {
+      "id": "DUP-EXP-009-EXP-010",
+      "expense_id_primary": "EXP-009",
+      "expense_id_secondary": "EXP-010",
+      "similarity_score": 100.0,
+      "match_factors": [
+        "Identical Receipt #CROMA-INV-9921",
+        "Perceptual Image Hash match (Hamming distance 0/64 - 95%+ visual match)",
+        "Exact Amount Match (INR 2499.00)",
+        "Exact Merchant Name ('Croma Electronics Koramangala')",
+        "Identical Transaction Date (2026-10-08)",
+        "High Line Item Overlap (100% items match)"
+      ],
+      "classification": "Likely Duplicate",
+      "created_at": "2026-10-08T12:00:00",
+      "resolved": false,
+      "resolution_disposition": null,
+      "resolution_notes": null
+    }
+  },
+  "risk_alerts": {
+    "RISK-EVASION-EMP-004": {
+      "id": "RISK-EVASION-EMP-004",
+      "alert_type": "THRESHOLD_EVASION",
+      "severity": "HIGH",
+      "title": "Approval Threshold Evasion Pattern (Vikram Malhotra)",
+      "description": "Employee submitted 2 expenses (\u20b94920.00, \u20b94950.00) clustered tightly just below the \u20b95,000.00 Vice-President approval sign-off requirement.",
+      "affected_expense_ids": [
+        "EXP-013",
+        "EXP-014"
+      ],
+      "employee_id": "EMP-004",
+      "suggested_action": "Consolidate claims and route to Department Head / VP for secondary review.",
+      "policy_reference": "Corporate Governance Policy Sec 6.1 - Delegation of Financial Authority",
+      "created_at": "2026-10-18T08:41:49.909439",
+      "status": "Active"
+    },
+    "RISK-SPLIT-EMP-004-2026-10-08-croma elec": {
+      "id": "RISK-SPLIT-EMP-004-2026-10-08-croma elec",
+      "alert_type": "SPLIT_EXPENSE_PATTERN",
+      "severity": "MEDIUM",
+      "title": "Split Transaction Cluster (Croma Electronics Koramangala)",
+      "description": "2 separate receipts totaling \u20b94998.00 logged on 2026-10-08 at 'Croma Electronics Koramangala' by Vikram Malhotra. May represent an artificially split bill.",
+      "affected_expense_ids": [
+        "EXP-009",
+        "EXP-010"
+      ],
+      "employee_id": "EMP-004",
+      "merchant": "Croma Electronics Koramangala",
+      "suggested_action": "Inspect line items to verify if charges belong to a single event that requires combined limits.",
+      "policy_reference": "Policy Sec 3.4 - Prohibition of Artificial Invoice Splitting",
+      "created_at": "2026-10-18T08:41:49.980932",
+      "status": "Active"
+    },
+    "RISK-WEEKEND-EXP-014": {
+      "id": "RISK-WEEKEND-EXP-014",
+      "alert_type": "WEEKEND_NON_BUSINESS",
+      "severity": "LOW",
+      "title": "Weekend Expense Without Travel Authorization (Sunday)",
+      "description": "Expense of \u20b94950.00 incurred on 2026-10-11 (Sunday) with no associated approved weekend business travel authorization.",
+      "affected_expense_ids": [
+        "EXP-014"
+      ],
+      "employee_id": "EMP-004",
+      "suggested_action": "Request employee confirm business justification or provide trip mandate.",
+      "policy_reference": "Travel Policy Sec 2.1 - Authorized Business Days",
+      "created_at": "2026-10-18T08:41:50.048785",
+      "status": "Active"
+    }
+  },
+  "audit_events": [
+    {
+      "id": "AUD-2A05B480C5",
+      "timestamp": "2026-10-18T08:41:49.758671",
+      "actor_id": "EMP-001",
+      "actor_name": "Priya Sharma",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-618E30F3",
+      "details": {
+        "amount": 619.5,
+        "currency": "INR",
+        "status": "Approved",
+        "recalculated_count": 0
+      }
+    },
+    {
+      "id": "AUD-AUTH-4135AA6A",
+      "timestamp": "2026-10-18T08:41:10.653345",
+      "actor_id": "USR-PRIYA",
+      "actor_name": "Priya Sharma",
+      "action": "USER_LOGIN",
+      "target_type": "User",
+      "target_id": "USR-PRIYA",
+      "details": {
+        "role": "employee",
+        "email": "priya@acmecorp.com"
+      }
+    },
+    {
+      "id": "AUD-AUTH-1578A5CE",
+      "timestamp": "2026-10-18T08:38:51.448348",
+      "actor_id": "USR-PRIYA",
+      "actor_name": "Priya Sharma",
+      "action": "USER_LOGIN",
+      "target_type": "User",
+      "target_id": "USR-PRIYA",
+      "details": {
+        "role": "employee",
+        "email": "priya@acmecorp.com"
+      }
+    },
+    {
+      "id": "AUD-AUTH-CC9F9F0D",
+      "timestamp": "2026-10-18T08:38:29.096590",
+      "actor_id": "USR-MANAGER",
+      "actor_name": "Rajesh Nair (Approver)",
+      "action": "USER_LOGIN",
+      "target_type": "User",
+      "target_id": "USR-MANAGER",
+      "details": {
+        "role": "manager",
+        "email": "manager@acmecorp.com"
+      }
+    },
+    {
+      "id": "AUD-AUTH-D6FBD48D",
+      "timestamp": "2026-10-18T08:25:55.534468",
+      "actor_id": "USR-PRIYA",
+      "actor_name": "Priya Sharma",
+      "action": "USER_LOGIN",
+      "target_type": "User",
+      "target_id": "USR-PRIYA",
+      "details": {
+        "role": "employee",
+        "email": "priya@acmecorp.com"
+      }
+    },
+    {
+      "id": "AUD-AUTH-444675EB",
+      "timestamp": "2026-10-18T08:19:43.601661",
+      "actor_id": "USR-PRIYA",
+      "actor_name": "Priya Sharma",
+      "action": "USER_LOGIN",
+      "target_type": "User",
+      "target_id": "USR-PRIYA",
+      "details": {
+        "role": "employee",
+        "email": "priya@acmecorp.com"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-014",
+      "timestamp": "2026-10-11T12:00:00",
+      "actor_id": "EMP-004",
+      "actor_name": "Vikram Malhotra",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-014",
+      "details": {
+        "amount": 4950.0,
+        "currency": "INR",
+        "status": "Approved",
+        "scenario": "Scenario 14: Evasion Claim 2 (\u20b94,950 triggering Risk Radar alert)"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-013",
+      "timestamp": "2026-10-09T12:00:00",
+      "actor_id": "EMP-004",
+      "actor_name": "Vikram Malhotra",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-013",
+      "details": {
+        "amount": 4920.0,
+        "currency": "INR",
+        "status": "Approved",
+        "scenario": "Scenario 13: Evasion Claim 1 (\u20b94,920 just below \u20b95k cutoff)"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-012",
+      "timestamp": "2026-10-15T12:00:00",
+      "actor_id": "EMP-003",
+      "actor_name": "Ananya Iyer",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-012",
+      "details": {
+        "amount": 8450.0,
+        "currency": "INR",
+        "status": "Pending Approval",
+        "scenario": "Scenario 12: High Value Claim (> \u20b95,000 VP Approval Threshold)"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-011",
+      "timestamp": "2026-10-13T20:30:00",
+      "actor_id": "EMP-001",
+      "actor_name": "Priya Sharma",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-011",
+      "details": {
+        "amount": 800.0,
+        "currency": "INR",
+        "status": "Approved",
+        "scenario": "Scenario 11: Dinner Expense Subject to Time Machine Recalculation"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-010",
+      "timestamp": "2026-10-08T12:00:00",
+      "actor_id": "EMP-004",
+      "actor_name": "Vikram Malhotra",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-010",
+      "details": {
+        "amount": 2499.0,
+        "currency": "INR",
+        "status": "Approved",
+        "scenario": "Scenario 10: Confirmed Duplicate Resubmission (Identical Invoice)"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-009",
+      "timestamp": "2026-10-08T12:00:00",
+      "actor_id": "EMP-004",
+      "actor_name": "Vikram Malhotra",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-009",
+      "details": {
+        "amount": 2499.0,
+        "currency": "INR",
+        "status": "Approved",
+        "scenario": "Scenario 9: Original Submission of Croma Hardware"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-008",
+      "timestamp": "2026-10-12T12:00:00",
+      "actor_id": "EMP-001",
+      "actor_name": "Priya Sharma",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-008",
+      "details": {
+        "amount": 3200.0,
+        "currency": "INR",
+        "status": "Needs Clarification",
+        "scenario": "Scenario 8: Client Meal Missing Required Information"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-007",
+      "timestamp": "2026-10-06T12:00:00",
+      "actor_id": "EMP-002",
+      "actor_name": "Rahul Verma",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-007",
+      "details": {
+        "amount": 4800.0,
+        "currency": "INR",
+        "status": "Approved",
+        "scenario": "Scenario 7: City Allowance & Hotel Accommodation Check"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-006",
+      "timestamp": "2026-10-14T12:00:00",
+      "actor_id": "EMP-003",
+      "actor_name": "Ananya Iyer",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-006",
+      "details": {
+        "amount": 1950.0,
+        "currency": "INR",
+        "status": "Partially Eligible",
+        "scenario": "Scenario 6: Non-Reimbursable Prohibited Item (Alcohol deducted)"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-005",
+      "timestamp": "2026-10-07T12:00:00",
+      "actor_id": "EMP-002",
+      "actor_name": "Rahul Verma",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-005",
+      "details": {
+        "amount": 45.0,
+        "currency": "USD",
+        "status": "Approved",
+        "scenario": "Scenario 5: Foreign Currency (USD $45 converted @ 83.50)"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-004",
+      "timestamp": "2026-10-11T12:00:00",
+      "actor_id": "EMP-001",
+      "actor_name": "Priya Sharma",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-004",
+      "details": {
+        "amount": 1450.0,
+        "currency": "INR",
+        "status": "Needs Clarification",
+        "scenario": "Scenario 4: Arithmetic Inconsistency (\u20b9150 gap between printed & sum)"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-003",
+      "timestamp": "2026-10-13T12:00:00",
+      "actor_id": "EMP-003",
+      "actor_name": "Ananya Iyer",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-003",
+      "details": {
+        "amount": 580.0,
+        "currency": "INR",
+        "status": "Approved",
+        "scenario": "Scenario 3: Missing Printed Total (Reconstructed from Items)"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-002",
+      "timestamp": "2026-10-06T12:00:00",
+      "actor_id": "EMP-002",
+      "actor_name": "Rahul Verma",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-002",
+      "details": {
+        "amount": 420.0,
+        "currency": "INR",
+        "status": "Approved",
+        "scenario": "Scenario 2: Rotated / Low-Contrast Receipt"
+      }
+    },
+    {
+      "id": "AUD-SEED-EXP-001",
+      "timestamp": "2026-10-10T12:00:00",
+      "actor_id": "EMP-001",
+      "actor_name": "Priya Sharma",
+      "action": "EXPENSE_SUBMITTED",
+      "target_type": "Expense",
+      "target_id": "EXP-001",
+      "details": {
+        "amount": 650.0,
+        "currency": "INR",
+        "status": "Approved",
+        "scenario": "Scenario 1: Clean, Compliant Receipt"
+      }
+    }
+  ],
+  "users": {
+    "USR-PRIYA": {
+      "id": "USR-PRIYA",
+      "name": "Priya Sharma",
+      "email": "priya@acmecorp.com",
+      "hashed_password": "afb4c439c7a36faaaa7ae8f5b4583b6e1dffed3956c6dbacc7cdd85bd930cb89",
+      "salt": "56a79193cedf0e0eab6d1b7e5e52fe9d",
+      "role": "employee",
+      "department": "Enterprise Sales",
+      "employee_id": "EMP-001",
+      "is_active": true,
+      "created_at": "2026-10-18T08:18:21.437425",
+      "reset_token": null,
+      "reset_token_expiry": null
+    },
+    "USR-RAHUL": {
+      "id": "USR-RAHUL",
+      "name": "Rahul Verma",
+      "email": "rahul@acmecorp.com",
+      "hashed_password": "d83f6b08aaf6d4e297f0819b9a505ed68dee5a79f20a9c111bdc1a6748fe5713",
+      "salt": "dd7726274d9e0f38024e04cf088b3212",
+      "role": "employee",
+      "department": "Solutions Engineering",
+      "employee_id": "EMP-002",
+      "is_active": true,
+      "created_at": "2026-10-18T08:18:21.450762",
+      "reset_token": null,
+      "reset_token_expiry": null
+    },
+    "USR-ANANYA": {
+      "id": "USR-ANANYA",
+      "name": "Ananya Iyer",
+      "email": "ananya@acmecorp.com",
+      "hashed_password": "109dc5b3d0f3e07d7561591d51b4ba498f51dad89c54c0bfe85b06f50394f76a",
+      "salt": "677bcd3f3573882efe3e54443ce9ddc0",
+      "role": "employee",
+      "department": "Product Management",
+      "employee_id": "EMP-003",
+      "is_active": true,
+      "created_at": "2026-10-18T08:18:21.464164",
+      "reset_token": null,
+      "reset_token_expiry": null
+    },
+    "USR-MANAGER": {
+      "id": "USR-MANAGER",
+      "name": "Rajesh Nair (Approver)",
+      "email": "manager@acmecorp.com",
+      "hashed_password": "d71e941e6026173f59144addc7e4706cc3ffc41bbfc88d98fef6f2fdf28cae91",
+      "salt": "75738210070926383a7f651278df06ea",
+      "role": "manager",
+      "department": "Engineering Management & Approvals",
+      "employee_id": "EMP-MGR",
+      "is_active": true,
+      "created_at": "2026-10-18T08:18:21.478095",
+      "reset_token": null,
+      "reset_token_expiry": null
+    },
+    "USR-FINANCE": {
+      "id": "USR-FINANCE",
+      "name": "Finance Reviewer",
+      "email": "finance@acmecorp.com",
+      "hashed_password": "dbba1ea03dcd9649abdc365f4f62c3adaa848f1c281ecc808eae69380559a5ed",
+      "salt": "8944512708df7d8ce36d3905714a68ee",
+      "role": "finance",
+      "department": "Financial Operations & Audit",
+      "employee_id": null,
+      "is_active": true,
+      "created_at": "2026-10-18T08:18:21.491504",
+      "reset_token": null,
+      "reset_token_expiry": null
+    },
+    "USR-ADMIN": {
+      "id": "USR-ADMIN",
+      "name": "System Administrator",
+      "email": "admin@acmecorp.com",
+      "hashed_password": "b2b2dc34bb4e5110a64c18ef84b8bf3951ea5885833f5cc583efdab3ae58d386",
+      "salt": "5ba4e548f133308b789a16abcdc65eb7",
+      "role": "admin",
+      "department": "Corporate Governance & IT",
+      "employee_id": null,
+      "is_active": true,
+      "created_at": "2026-10-18T08:18:21.504781",
+      "reset_token": null,
+      "reset_token_expiry": null
+    }
+  },
+  "policy_document_metadata": {
+    "title": "Global Acme Corp Corporate Expense & Travel Policy",
+    "version": "2026.4",
+    "effective_date": "2026-01-01",
+    "last_updated": "2026-10-01",
+    "approval_matrix": {
+      "Standard": "Direct Manager",
+      "Tier1_OverLimit": "Department Head",
+      "Over_5000": "Vice President / Finance Director"
+    }
+  }
+}

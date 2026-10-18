@@ -1,0 +1,272 @@
+/* Expense Autopilot: PPT Theme (White Background, Thin Purple Borders, Dark Navy Text, Pastel Blue, Beige, Soft Yellow) */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Theme Core Colors */
+  --bg-main: #f8f9fa;
+  --bg-white: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #fbfbfe;
+  --bg-input: #ffffff;
+
+  /* Thin Purple Borders */
+  --border-purple-thin: #ddd6fe;      /* 1px solid light purple */
+  --border-purple-active: #8b5cf6;    /* Active purple border */
+  --border-purple-focus: #7c3aed;
+  --border-subtle: #ede9fe;
+
+  /* Dark Navy Text */
+  --text-navy-primary: #0f172a;       /* Deep dark navy for headers & main text */
+  --text-navy-secondary: #334155;     /* Dark navy secondary */
+  --text-navy-muted: #64748b;         /* Muted navy slate */
+  --text-dim: #94a3b8;
+
+  /* Pastel Blue */
+  --pastel-blue-bg: #e0f2fe;
+  --pastel-blue-border: #bae6fd;
+  --pastel-blue-text: #0369a1;
+
+  /* Warm Beige */
+  --beige-bg: #fdf6e2;
+  --beige-card: #fef9ee;
+  --beige-border: #fde68a;
+  --beige-text: #92400e;
+
+  /* Soft Yellow */
+  --soft-yellow-bg: #fef08a;
+  --soft-yellow-border: #fde047;
+  --soft-yellow-text: #854d0e;
+
+  /* Success Emerald & Danger Rose */
+  --emerald-bg: #d1fae5;
+  --emerald-border: #a7f3d0;
+  --emerald-text: #065f46;
+
+  --rose-bg: #ffe4e6;
+  --rose-border: #fecdd3;
+  --rose-text: #9f1239;
+
+  /* Shadows */
+  --card-shadow: 0 4px 20px -2px rgba(109, 40, 217, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  --modal-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15), 0 0 0 1px #ddd6fe;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-navy-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(224, 242, 254, 0.6) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(254, 243, 199, 0.5) 0%, transparent 45%),
+    linear-gradient(to bottom, #ffffff, #f8f9fa);
+  background-attachment: fixed;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, .display-font {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--text-navy-primary);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* Cards & Panels: White Background with Thin Purple Borders */
+.glass-panel {
+  background: var(--bg-white);
+  border: 1px solid var(--border-purple-thin);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-purple-active);
+  box-shadow: 0 6px 24px -2px rgba(109, 40, 217, 0.09);
+}
+
+/* Status Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+}
+
+.badge-approved {
+  background: var(--emerald-bg);
+  color: var(--emerald-text);
+  border: 1px solid var(--emerald-border);
+}
+
+.badge-partially-eligible {
+  background: var(--soft-yellow-bg);
+  color: var(--soft-yellow-text);
+  border: 1px solid var(--soft-yellow-border);
+}
+
+.badge-clarification {
+  background: var(--pastel-blue-bg);
+  color: var(--pastel-blue-text);
+  border: 1px solid var(--pastel-blue-border);
+}
+
+.badge-pending-approval {
+  background: #ede9fe;
+  color: #6d28d9;
+  border: 1px solid #c4b5fd;
+}
+
+.badge-rejected {
+  background: var(--rose-bg);
+  color: var(--rose-text);
+  border: 1px solid var(--rose-border);
+}
+
+.badge-duplicate {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+/* Button Component Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+  border: 1px solid #6d28d9;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #6d28d9, #4f46e5);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-purple {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25);
+}
+.btn-purple:hover {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--text-navy-primary);
+  border: 1px solid var(--border-purple-thin);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.btn-secondary:hover {
+  background: #fbfbfe;
+  border-color: var(--border-purple-active);
+  color: #6d28d9;
+}
+
+.btn-success {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+.btn-success:hover {
+  background: #d1fae5;
+}
+
+.btn-danger {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+}
+.btn-danger:hover {
+  background: #ffe4e6;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 11px;
+}
+
+/* Form Inputs */
+input, select, textarea {
+  background: var(--bg-input);
+  border: 1px solid var(--border-purple-thin);
+  color: var(--text-navy-primary);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  outline: none;
+  transition: all 0.15s ease;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--border-purple-focus);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.pulse-badge {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
